@@ -1,34 +1,31 @@
 import React from 'react'
 import Carousel from 'nuka-carousel'
-// import createReactClass from 'create-react-class'
+import { Container } from 'semantic-ui-react'
 import PostCard from './PostCard'
 
 
 
 const PostsCarousel = (props) => {
-  // parse the posts data for the specific dateTime
-  const postsSet = props.data.map( (item, index ) => {
-    return (
-      <PostCard card={item} key={index} />
-    )
+  const cards = props.cards.map( (card, index) => {
+    return <div style={{padding: '13px'}}key={index}>{`${card.occurringAt}:pos ${index}` }</div>
   })
 
   const carouselStyles = {
     touchAction: 'none',
-    borderBottom: '1px solid #eee'
+    display: 'block'
   }
 
   return (
     <Carousel decorators={[]}
               cellSpacing={20}
+              cellAlign='center'
               dragging={true}
               easing="easeInOutElastic"
               edgeEasing="easeOutCirc"
               slidesToShow={1}
               speed={200}
-              style={carouselStyles} 
-    >
-      {postsSet}
+              style={carouselStyles} >
+      {cards}
     </Carousel>
   )
 }
