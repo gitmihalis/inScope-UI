@@ -4,7 +4,7 @@ import { Container} from 'semantic-ui-react'
 import axios from 'axios'
 import _ from 'lodash'
 
-
+// get scopeQuery from props
 class PostsIndex extends Component {
   constructor(props) {
     super(props)
@@ -14,7 +14,7 @@ class PostsIndex extends Component {
   }
 
   componentDidMount = () => {
-    axios.get(`http://localhost:3000/api/in/support`)
+    axios.get(`http://localhost:3000/api/in/${this.props.scope}`)
     .then(res => {
       const groupedPosts = this.groupPosts(res.data.data)
       this.setState({ posts: groupedPosts})
