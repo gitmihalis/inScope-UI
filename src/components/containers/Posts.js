@@ -5,7 +5,7 @@ import axios from 'axios'
 import _ from 'lodash'
 
 // get scopeQuery from props
-class PostsIndex extends Component {
+class Posts extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -52,4 +52,4 @@ class PostsIndex extends Component {
 
 }
 
-export default PostsIndex
+export default Posts

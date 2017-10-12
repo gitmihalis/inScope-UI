@@ -3,7 +3,7 @@ import { Container} from 'semantic-ui-react'
 import axios from 'axios'
 
 // get scopeQuery from props
-class ScopesIndex extends Component {
+class Scopes extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,4 +39,4 @@ class ScopesIndex extends Component {
 
 }
 
-export default ScopesIndex
+export default Scopes
