@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Container} from 'semantic-ui-react'
+import { Feed } from 'semantic-ui-react'
+import ScopeItem from '../presenters/ScopeItem'
 import axios from 'axios'
 
 
@@ -16,7 +17,7 @@ export default class Scopes extends Component {
   componentDidMount() {
     axios.get(API + '/in')
     .then(res => {
-      this.setState({ data: res.data.data})
+      this.setState({ scopes: res.data.data})
     });
   }
 
@@ -24,15 +25,15 @@ export default class Scopes extends Component {
   
   render() {
     const scopes = this.state.scopes.map( scope => {
-      return <div key={scope._id}>{scope._id}</div>
+      return <ScopeItem key={scope._id} scope={scope} />
     })
  
     // do for each in posts
 
     return (
-      <div>
-        ... Scopes
-      </div>
+      <Feed>
+        {scopes}
+        </Feed>
     )
   }
 
