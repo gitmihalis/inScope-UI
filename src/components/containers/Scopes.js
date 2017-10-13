@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Container} from 'semantic-ui-react'
 import axios from 'axios'
 
+
+const API = 'http://localhost:3000/api'
 // get scopeQuery from props
-class Scopes extends Component {
+export default class Scopes extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,17 +13,16 @@ class Scopes extends Component {
     }
   }
 
-  componentDidMount = () => {
-    axios.get(`http://localhost:3000/api/in`)
+  componentDidMount() {
+    axios.get(API + '/in')
     .then(res => {
-        const data = res.data.data
-      this.setState({ scopes: data})
-    })
+      this.setState({ data: res.data.data})
+    });
   }
 
 
   
-  render = () => {
+  render() {
     const scopes = this.state.scopes.map( scope => {
       return <div key={scope._id}>{scope._id}</div>
     })
@@ -29,14 +30,10 @@ class Scopes extends Component {
     // do for each in posts
 
     return (
-      <div style={{
-        marginTop: '3em'
-      }}>
-        {scopes}
+      <div>
+        ... Scopes
       </div>
     )
   }
 
 }
-
-export default Scopes
