@@ -1,37 +1,38 @@
 import React from 'react'
 // TODO downgrade Nuka-Carousel to https://github.com/lyfeyaj/swipe/blob/master/react/swipe.jsx
 import Carousel from 'nuka-carousel'
-import { Container } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 import PostCard from './PostCard'
 
 
 
 const PostsCarousel = (props) => {
-  const cards = props.cards.map( (card, index) => {
-    console.log('card is ', card)
-    return <div style={{padding: '13px'}}key={index}>
-      {`${card.title}` }
-      <p>{card.occurringAt}</p>
-      </div>
+  console.log('postCarousel', props)
+  // build each Post Card inside of carousel
+  const posts = props.posts.map( (post, index) => {
+    return <PostCard post={post} key={index} scope={props.scope} />
   })
+
 
   const carouselStyles = {
     touchAction: 'none',
-    display: 'block'
+
   }
 
   return (
-    <Carousel decorators={[]}
-              cellSpacing={20}
-              cellAlign='center'
-              dragging={true}
-              easing="easeInOutElastic"
-              edgeEasing="easeOutCirc"
-              slidesToShow={1}
-              speed={200}
-              style={carouselStyles} >
-      {cards}
-    </Carousel>
+    <List.Item>
+      <Carousel decorators={[]}
+                cellAlign='center'
+                dragging={true}
+                easing="easeInOutElastic"
+                edgeEasing="easeOutCirc"
+                slidesToShow={1}
+                slideWidth={.9}
+                speed={200}
+                style={carouselStyles} >
+          {posts}
+      </Carousel>
+    </List.Item>
   )
 }
 

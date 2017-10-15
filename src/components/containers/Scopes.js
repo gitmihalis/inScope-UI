@@ -24,6 +24,7 @@ export default class Scopes extends Component {
 
   
   render() {
+    
     const scopes = this.state.scopes.map( scope => {
       return <ScopeItem key={scope._id} scope={scope} />
     })
@@ -33,7 +34,7 @@ export default class Scopes extends Component {
     return (
       <Feed>
         {scopes}
-        </Feed>
+      </Feed>
     )
   }
 
