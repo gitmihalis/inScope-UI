@@ -8,3 +8,5 @@ A node JS reddit clone but with a twist
 
 .. in development
 
+![screen shot](https://github.com/gitmihalis/inScope-UI/blob/master/docs/progress.png)
+
