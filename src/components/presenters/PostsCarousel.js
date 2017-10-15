@@ -1,7 +1,7 @@
 import React from 'react'
 // TODO downgrade Nuka-Carousel to https://github.com/lyfeyaj/swipe/blob/master/react/swipe.jsx
 import Carousel from 'nuka-carousel'
-import { List } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import PostCard from './PostCard'
 
 
@@ -16,23 +16,22 @@ const PostsCarousel = (props) => {
 
   const carouselStyles = {
     touchAction: 'none',
-
   }
 
   return (
-    <List.Item>
+    <div>
       <Carousel decorators={[]}
                 cellAlign='center'
                 dragging={true}
                 easing="easeInOutElastic"
                 edgeEasing="easeOutCirc"
                 slidesToShow={1}
-                slideWidth={.9}
+                slideWidth={1}
                 speed={200}
                 style={carouselStyles} >
-          {posts}
+                  {posts}
       </Carousel>
-    </List.Item>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PostsCarousel from './../presenters/PostsCarousel'
-import { List } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import axios from 'axios'
 import _ from 'lodash'
 
@@ -46,15 +46,16 @@ export default class Posts extends Component {
     })
 
     const postsStyles = {
-      display: 'block'
+      padding: '12px',
+      margin: '10px auto'
     }
  
     // do for each in posts
 
     return (
-      <List>
+      <div style={postsStyles}>
         {stackedPosts}
-      </List>
+      </div>
     )
   }
 
